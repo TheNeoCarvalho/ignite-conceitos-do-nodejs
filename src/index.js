@@ -11,7 +11,7 @@ app.use(express.json());
 const users = [];
 
 function checksExistsUserAccount(request, response, next) {
-  
+
   const { username } = request.headers;
 
   if (!username) {
@@ -67,7 +67,7 @@ app.post('/todos', checksExistsUserAccount, (request, response) => {
     deadline: new Date(deadline),
     created_at: new Date(),
   };
-  
+
   user.todos.push(newToDo);
 
   return response.status(201).json(newToDo);
